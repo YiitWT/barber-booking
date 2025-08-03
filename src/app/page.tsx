@@ -1,7 +1,7 @@
 import { GetAppointment } from "@/components/GetAppointment";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Instagram, Twitter, Facebook } from "lucide-react"
+import { Instagram, Twitter, Facebook, ScissorsIcon, HeartPlus, BottleWine } from "lucide-react"
 
 export default function Home() {
 
@@ -13,14 +13,29 @@ export default function Home() {
     { name: "Contact", path: "/contact" },
   ];
 
+  // Define the social media links
+  const socialLinks = [
+    { icon: <Instagram />, link: "https://instagram.com" },
+    { icon: <Twitter />, link: "https://twitter.com" },
+    { icon: <Facebook />, link: "https://facebook.com" },
+  ];
+
+  // Define the services offered
+  const services = [
+    { icon: <ScissorsIcon />, title: "Haircut" },
+    { icon: <BottleWine />, title: "Beard Care" },
+    { icon: <HeartPlus />, title: "Styling" }
+  ];
+
   return (
     <div className="">
       <Header brandName="YarrakBerber" routes={headerRoutes} />
-      <Hero videoSrc="/heroVideo.mp4" title="Welcome to Our Barber Shop"
-        socials={[
-          { icon: <Instagram />, link: "https://instagram.com" },
-          { icon: <Facebook />, link: "https://facebook.com" },
-        ]} />
+      <Hero
+        videoSrc="/heroVideo.mp4"
+        title="Yarakoğlu berber'e Hoş Geldiniz"
+        socials={socialLinks}
+        services={services}
+      />
       <GetAppointment />
     </div>
   );
